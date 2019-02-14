@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CarRent.Api.CarManagement.Domain
+﻿namespace CarRent.Api.CarManagement.Domain
 {
+  using System.Collections.Generic;
+
   public interface ICarService
   {
     IReadOnlyList<Car> GetAll();

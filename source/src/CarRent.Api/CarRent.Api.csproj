@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <Folder Include="Foundation\" />
+    <Folder Include="ContractManagment\" />
+    <Folder Include="ReservationManagment\Controller\" />
+    <Folder Include="ReservationManagment\Persistence\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

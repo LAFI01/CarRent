@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CarRent.Api.CarManagement.Domain
+﻿namespace CarRent.Api.CarManagement.Domain
 {
   public class Car
   {
@@ -17,11 +15,17 @@ namespace CarRent.Api.CarManagement.Domain
     }
 
     public string Brand { get; set; }
+
     public int CarId { get; }
+
     public string CarType { get; set; }
+
     public bool IsAvailable { get; set; }
+
     public int NumberOfCars { get; set; }
+
     public string CarClass { get; set; }
+
     public decimal PricePerDay { get; set; }
   }
 }

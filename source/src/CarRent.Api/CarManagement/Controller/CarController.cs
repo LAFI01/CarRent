@@ -1,10 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CarRent.Api.CarManagement.Domain;
-using Microsoft.AspNetCore.Mvc;
-
+﻿// ************************************************************************************
+// FileName: CarController.cs
+// Author: 
+// Created on: 24.01.2019
+// Last modified on: 10.02.2019
+// Copy Right: JELA Rocks
+// ------------------------------------------------------------------------------------
+// Description: 
+// ------------------------------------------------------------------------------------
+// ************************************************************************************
 namespace CarRent.Api.CarManagement.Controller
 {
+  using System.Collections.Generic;
+  using System.Linq;
+  using Domain;
+  using Microsoft.AspNetCore.Mvc;
+
   [Route("api/[controller]")]
   [ApiController]
   public class CarController : ControllerBase
@@ -16,12 +26,28 @@ namespace CarRent.Api.CarManagement.Controller
 
     private ICarService CarService { get; }
 
+    // DELETE: api/ApiWithActions/5
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+    }
+
     // GET: api/Car
     [HttpGet]
     public IEnumerable<CarDto> Get()
     {
       var cars = CarService.GetAll();
-      return cars.Select(c => new CarDto {Brand = c.Brand});
+
+      return cars.Select(c => new CarDto
+      {
+        Brand = c.Brand,
+        CarClass = c.CarClass,
+        CarId = c.CarId,
+        CarType = c.CarType,
+        IsAvailable = c.IsAvailable,
+        NumberOfCars = c.NumberOfCars,
+        PricePerDay = c.PricePerDay
+      });
     }
 
     // GET: api/Car/5
@@ -40,12 +66,6 @@ namespace CarRent.Api.CarManagement.Controller
     // PUT: api/Car/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
-    {
-    }
-
-    // DELETE: api/ApiWithActions/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
     {
     }
   }

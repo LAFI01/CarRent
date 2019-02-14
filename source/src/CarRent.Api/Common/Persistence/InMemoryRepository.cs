@@ -1,10 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CarRent.Api.Common.Domain;
-
+﻿// ************************************************************************************
+// FileName: InMemoryRepository.cs
+// Author: 
+// Created on: 09.02.2019
+// Last modified on: 10.02.2019
+// Copy Right: JELA Rocks
+// ------------------------------------------------------------------------------------
+// Description: 
+// ------------------------------------------------------------------------------------
+// ************************************************************************************
 namespace CarRent.Api.Common.Persistence
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using Domain;
+
   public abstract class InMemoryRepository<TAggregate> : IRepository<TAggregate>
     where TAggregate : AggregateRoot
   {

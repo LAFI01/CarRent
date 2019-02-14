@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CarRent.Api.CarManagement.Domain;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
+﻿// ************************************************************************************
+// FileName: CarRepository.cs
+// Author: 
+// Created on: 24.01.2019
+// Last modified on: 10.02.2019
+// Copy Right: JELA Rocks
+// ------------------------------------------------------------------------------------
+// Description: 
+// ------------------------------------------------------------------------------------
+// ************************************************************************************
 namespace CarRent.Api.CarManagement.Persistence
 {
+  using System.Collections.Generic;
+  using Domain;
+
   public class CarRepository : ICarRepository
   {
-    //private readonly static IReadOnlyList<Car> InmemoryCars = new List<Car>() { new Car("Audi"), new Car("BMW") };
+    // private readonly static IReadOnlyList<Car> InmemoryCars = new List<Car>() { new Car("Audi"), new Car("BMW") };
     public IReadOnlyList<Car> GetAll()
     {
-      //return InmemoryCars;
-      return  null;
+      // return InmemoryCars
+      return null;
     }
   }
 }

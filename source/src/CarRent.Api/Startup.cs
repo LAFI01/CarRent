@@ -1,14 +1,16 @@
-﻿namespace CarRent.Api
-{
-  using CarRent.Api.CarManagement.Domain;
-  using CarRent.Api.CarManagement.Persistence;
-  using Microsoft.AspNetCore.Builder;
-  using Microsoft.AspNetCore.Hosting;
-  using Microsoft.AspNetCore.Mvc;
-  using Microsoft.Extensions.Configuration;
-  using Microsoft.Extensions.DependencyInjection;
-  using Microsoft.Extensions.Logging;
+﻿using CarRent.Api.CarManagement.Domain;
+using CarRent.Api.CarManagement.Persistence;
+using CarRent.Api.CustomerManagement.Domain;
+using CarRent.Api.CustomerManagement.Persistence;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
+namespace CarRent.Api
+{
   public class Startup
   {
     public Startup(IConfiguration configuration)
@@ -24,9 +26,15 @@
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
       services.AddLogging(lb => lb.AddConsole());
       services.AddTransient<ICarService, CarService>();
+      services.AddTransient<ICustomerService, CustomerService>();
+      
       //services.AddTransient<ICarRepository, CarRepository>();
       services.AddTransient<ICarRepository, MySqlCarRepository>(sp =>
         new MySqlCarRepository(Configuration.GetConnectionString("DefaultConnection")));
+      services.AddTransient<ICustomerRepository, MySqlCustomerRepository>(sp =>
+        new MySqlCustomerRepository(Configuration.GetConnectionString("DefaultConnection")));
+
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +43,12 @@
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+        //Damit Daten in der Angular Appliaktion angezeigt werden!! 
+        app.UseCors(builder => builder
+          .AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+          .AllowCredentials());
       }
       else
       {

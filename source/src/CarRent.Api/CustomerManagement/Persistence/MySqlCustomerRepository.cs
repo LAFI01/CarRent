@@ -1,34 +1,33 @@
 ﻿// ************************************************************************************
-// FileName: MySqlCarRepository.cs
+// FileName: MySqlCustomerRepository.cs
 // Author: 
-// Created on: 24.01.2019
+// Created on: 10.02.2019
 // Last modified on: 10.02.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
 // ------------------------------------------------------------------------------------
 // ************************************************************************************
-
-namespace CarRent.Api.CarManagement.Persistence
+namespace CarRent.Api.CustomerManagement.Persistence
 {
   using System.Collections.Generic;
   using System.Data;
   using Domain;
   using MySql.Data.MySqlClient;
 
-  public class MySqlCarRepository : ICarRepository
+  public class MySqlCustomerRepository : ICustomerRepository
   {
-    public MySqlCarRepository(string connectionString)
+    public MySqlCustomerRepository(string connectionString)
     {
       MySqlConnection = new MySqlConnection(connectionString);
     }
 
     private IDbConnection MySqlConnection { get; }
 
-    public IReadOnlyList<Car> GetAll()
-    {
-      IList<Car> allCars = new List<Car>();
 
+    public IReadOnlyList<Customer> GetAll()
+    {
+      IList<Customer> allCustomers = new List<Customer>();
       try
       {
         MySqlConnection.Open();
@@ -36,16 +35,17 @@ namespace CarRent.Api.CarManagement.Persistence
         {
           IDbCommand command = MySqlConnection.CreateCommand();
           command.CommandText =
-            "SELECT idCar, brand, type, isAvailable, numberOfCars, designation, pricePerDay FROM car INNER JOIN carClass ON car.fkCarClass = carClass.idCarClass;";
+            "SELECT cu.idCustomer, cu.name, cu.firstname, a.street, a.nr, ci.plz, ci.ort FROM customer cu INNER JOIN address a ON cu.fkAddress = a.idAddress INNER JOIN city ci ON a.fkCity = ci.idCity;";
 
           using (IDataReader reader = command.ExecuteReader())
           {
             while (reader.Read())
             {
-              Car newCar = new Car(ConvertToInt(reader.GetValue(0)), reader.GetString(1), reader.GetString(2),
-                ConvertToBool(reader.GetValue(3)), ConvertToInt(reader.GetValue(4)), reader.GetString(5),
-                ConvertToDecimal(reader.GetValue(6)));
-              allCars.Add(newCar);
+              Customer newCustomer = new Customer(ConvertToInt(reader.GetValue(0)), reader.GetString(1),
+                reader.GetString(2),
+                reader.GetString(3), reader.GetString(4),
+                ConvertToInt(reader.GetValue(5)), reader.GetString(6));
+              allCustomers.Add(newCustomer);
             }
 
             reader.Close();
@@ -57,29 +57,7 @@ namespace CarRent.Api.CarManagement.Persistence
         MySqlConnection.Close();
       }
 
-      return (IReadOnlyList<Car>) allCars;
-    }
-
-    private bool ConvertToBool(object obj)
-    {
-      var i = false;
-      if (obj is bool)
-      {
-        i = (bool) obj;
-      }
-
-      return i;
-    }
-
-    private decimal ConvertToDecimal(object obj)
-    {
-      decimal i = 0;
-      if (obj is decimal @decimal)
-      {
-        i = @decimal;
-      }
-
-      return i;
+      return (IReadOnlyList<Customer>) allCustomers;
     }
 
     private int ConvertToInt(object obj)

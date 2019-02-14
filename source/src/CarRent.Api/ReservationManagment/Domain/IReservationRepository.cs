@@ -1,29 +1,16 @@
 ﻿// ************************************************************************************
-// FileName: Program.cs
+// FileName: IReservationRepository.cs
 // Author: 
-// Created on: 24.01.2019
+// Created on: 10.02.2019
 // Last modified on: 10.02.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
 // ------------------------------------------------------------------------------------
 // ************************************************************************************
-namespace CarRent.Api
+namespace CarRent.Api.ReservationManagment.Domain
 {
-  using Microsoft.AspNetCore;
-  using Microsoft.AspNetCore.Hosting;
-
-  public class Program
+  public interface IReservationRepository
   {
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-    {
-      return WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>();
-    }
-
-    public static void Main(string[] args)
-    {
-      CreateWebHostBuilder(args).Build().Run();
-    }
   }
 }
