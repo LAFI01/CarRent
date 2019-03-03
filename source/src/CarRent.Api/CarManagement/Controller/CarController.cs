@@ -44,8 +44,10 @@ namespace CarRent.Api.CarManagement.Controller
         CarClass = c.CarClass,
         CarId = c.CarId,
         CarType = c.CarType,
-        IsAvailable = c.IsAvailable,
-        NumberOfCars = c.NumberOfCars,
+        NumberOfAvailableCars = c.NumberOfAvailableCars,
+        CarClassFk = c.CarClassFk,
+        NumberOfTotalCars = c.NumberOfTotalCars,
+        CarClassId = c.CarClassId,
         PricePerDay = c.PricePerDay
       });
     }

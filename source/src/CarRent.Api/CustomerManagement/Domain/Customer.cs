@@ -2,7 +2,7 @@
 // FileName: Customer.cs
 // Author: 
 // Created on: 10.02.2019
-// Last modified on: 10.02.2019
+// Last modified on: 03.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -12,18 +12,31 @@ namespace CarRent.Api.CustomerManagement.Domain
 {
   public class Customer
   {
-    public Customer(int customerId, string name, string firstname, string street, string nr, int plz, string palce)
+    public Customer(int customerId, string name, string firstname, int addressFk, int addressId, string street,
+      string nr, int cityFk, int cityId, int plz, string palce)
     {
       CustomerId = customerId;
       Name = name;
       Firstname = firstname;
+      AddressFk = addressFk;
+      AddressId = addressId;
       Street = street;
       StreetNr = nr;
+      CityFk = cityFk;
+      CityId = cityId;
       Plz = plz;
       Place = palce;
     }
 
-    public int CustomerId { get; }
+    public int AddressFk { get; set; }
+
+    public int AddressId { get; set; }
+
+    public int CityFk { get; set; }
+
+    public int CityId { get; set; }
+
+    public int CustomerId { get; set; }
 
     public string Firstname { get; set; }
 

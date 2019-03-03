@@ -10,6 +10,7 @@
 // ************************************************************************************
 namespace CarRent.Api.Tests.Persistence
 {
+  using CarManagement.Domain;
   using CarManagement.Persistence;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -26,6 +27,13 @@ namespace CarRent.Api.Tests.Persistence
       var allCars = sut.GetAll();
 
       Assert.IsNotNull(allCars);
+    }
+
+    private Car CreateCar()
+    {
+      Car car = new Car(0,"Ferrari", "Cabrio", 3, 2,2,3, "Luxusklasse", 60.00m);
+
+      return car;
     }
   }
 }

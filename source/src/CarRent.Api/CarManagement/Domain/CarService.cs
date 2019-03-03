@@ -15,5 +15,10 @@ namespace CarRent.Api.CarManagement.Domain
     {
       return CarRepository.GetAll();
     }
+
+    public void AddCar(Car car)
+    {
+      CarRepository.AddCar(car);
+    }
   }
 }

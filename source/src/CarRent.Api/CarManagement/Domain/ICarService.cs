@@ -5,5 +5,7 @@
   public interface ICarService
   {
     IReadOnlyList<Car> GetAll();
+
+    void AddCar(Car car);
   }
 }

@@ -21,7 +21,7 @@ namespace CarRent.Api.CustomerManagement.Domain
 #pragma warning restore SA1101 // Prefix local calls with this
     }
 
-    public ICustomerRepository CustomerRepository { get; }
+    private ICustomerRepository CustomerRepository { get; }
 
 
     public IReadOnlyList<Customer> GetAll()

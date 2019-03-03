@@ -1,11 +1,11 @@
 ﻿// ************************************************************************************
 // FileName: CarDto.cs
-// Author:
+// Author: 
 // Created on: 24.01.2019
-// Last modified on: 10.02.2019
+// Last modified on: 03.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
-// Description:
+// Description: 
 // ------------------------------------------------------------------------------------
 // ************************************************************************************
 namespace CarRent.Api.CarManagement.Controller
@@ -20,14 +20,19 @@ namespace CarRent.Api.CarManagement.Controller
 
     public string CarClass { get; set; }
 
+    public int CarClassFk { get; set; }
+
+    public int CarClassId { get; set; }
+
     public int CarId { get; set; }
 
     public string CarType { get; set; }
 
-    public bool IsAvailable { get; set; }
+    public int NumberOfAvailableCars { get; set; }
 
-    public int NumberOfCars { get; set; }
+    public int NumberOfTotalCars { get; set; }
 
     public decimal PricePerDay { get; set; }
+
   }
 }

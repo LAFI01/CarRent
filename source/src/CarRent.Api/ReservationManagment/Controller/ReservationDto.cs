@@ -1,31 +1,19 @@
 ﻿// ************************************************************************************
-// FileName: Reservation.cs
+// FileName: ReservationDto.cs
 // Author: 
-// Created on: 10.02.2019
+// Created on: 03.03.2019
 // Last modified on: 03.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
 // ------------------------------------------------------------------------------------
 // ************************************************************************************
-namespace CarRent.Api.ReservationManagment.Domain
+namespace CarRent.Api.ReservationManagment.Controller
 {
   using System;
 
-  public class Reservation
+  public class ReservationDto
   {
-    public Reservation(int reservationId, DateTime startDate, DateTime endDate, decimal totalPrice, bool isPickedUp,
-      int customerFk, int carFk)
-    {
-      ReservationId = reservationId;
-      StartDate = startDate;
-      EndDate = endDate;
-      TotalPrice = totalPrice;
-      IsPickedUp = isPickedUp;
-      CustomerFk = customerFk;
-      CarFk = carFk;
-    }
-
     public int CarFk { get; set; }
 
     public int CustomerFk { get; set; }
