@@ -14,7 +14,7 @@ namespace CarRent.Api.CustomerManagement.Domain
 
   public interface ICustomerRepository
   {
-    void CreateCustomer(string name, string firstname, string street, string nr, int plz, string city);
+    void AddCustomer(Customer newCustomer);
 
     void DeleteCustomer(int customerId);
 

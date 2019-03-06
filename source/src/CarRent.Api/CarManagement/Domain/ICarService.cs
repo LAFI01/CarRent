@@ -6,6 +6,8 @@
   {
     IReadOnlyList<Car> GetAll();
 
-    void AddCar(Car car);
+    void AddCar(Car newCar);
+
+    void DeleteCar(int carId);
   }
 }

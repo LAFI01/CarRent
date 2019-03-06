@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Foundation\" />
-    <Folder Include="ContractManagment\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

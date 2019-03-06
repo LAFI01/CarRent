@@ -15,8 +15,7 @@ namespace CarRent.Api.ReservationManagment.Domain
 
   public interface IReservationService
   {
-    void AddReservation(DateTime startDate, DateTime endDate, bool isPickedUp, int customerFk, int carFk,
-      decimal carPricePerDay);
+    void AddReservation(Reservation newReservation);
 
     void DeleteReservation(int reservationId);
 

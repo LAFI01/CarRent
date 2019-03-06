@@ -2,7 +2,7 @@
 // FileName: MySqlCarRepository.cs
 // Author: 
 // Created on: 24.01.2019
-// Last modified on: 03.03.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -62,6 +62,11 @@ namespace CarRent.Api.CarManagement.Persistence
       {
         MySqlConnection.Close();
       }
+    }
+
+    public void DeleteCar(int carId)
+    {
+      DeleteRow("car", "idCar", carId);
     }
 
 

@@ -22,34 +22,34 @@ namespace CarRent.Api.CustomerManagement.Persistence
     {
     }
 
-    public void CreateCustomer(string name, string firstname, string street, string nr, int plz, string city)
+    public void AddCustomer(Customer newCustomer)
     {
       try
       {
         MySqlConnection.Open();
         IDbCommand cmd = CreateCommand(MySqlConnection, CommandType.StoredProcedure, "p_new_customer");
 
-        MySqlParameter p1 = new MySqlParameter("_name", name);
+        MySqlParameter p1 = new MySqlParameter("_name", newCustomer.Name);
         p1.Direction = ParameterDirection.Input;
         p1.DbType = DbType.String;
 
-        MySqlParameter p2 = new MySqlParameter("_firstname", firstname);
+        MySqlParameter p2 = new MySqlParameter("_firstname", newCustomer.Firstname);
         p2.Direction = ParameterDirection.Input;
         p2.DbType = DbType.String;
 
-        MySqlParameter p3 = new MySqlParameter("_street", street);
+        MySqlParameter p3 = new MySqlParameter("_street", newCustomer.Street);
         p3.Direction = ParameterDirection.Input;
         p3.DbType = DbType.String;
 
-        MySqlParameter p4 = new MySqlParameter("_nr", nr);
+        MySqlParameter p4 = new MySqlParameter("_nr", newCustomer.StreetNr);
         p4.Direction = ParameterDirection.Input;
         p4.DbType = DbType.String;
 
-        MySqlParameter p5 = new MySqlParameter("_plz", plz);
+        MySqlParameter p5 = new MySqlParameter("_plz", newCustomer.Plz);
         p5.Direction = ParameterDirection.Input;
         p5.DbType = DbType.Int32;
 
-        MySqlParameter p6 = new MySqlParameter("_ort", city);
+        MySqlParameter p6 = new MySqlParameter("_ort", newCustomer.Place);
         p6.Direction = ParameterDirection.Input;
         p6.DbType = DbType.String;
 

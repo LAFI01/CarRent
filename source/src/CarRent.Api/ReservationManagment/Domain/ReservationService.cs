@@ -37,12 +37,9 @@ namespace CarRent.Api.ReservationManagment.Domain
       ReservationRepository.DeleteReservation(reservationId);
     }
 
-    public void AddReservation(DateTime startDate, DateTime endDate, bool isPickedUp, int customerFk, int carFk,
-      decimal carPricePerDay)
+    public void AddReservation(Reservation newReservation)
     {
-      ReservationRepository.CreateReservation(startDate, endDate,
-        CalculateTotalPrice(startDate, endDate, carPricePerDay), isPickedUp, customerFk,
-        carFk);
+      ReservationRepository.CreateReservation(newReservation);
     }
 
     private decimal CalculateTotalPrice(DateTime start, DateTime end, decimal carPricePerDay)

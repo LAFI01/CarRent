@@ -20,5 +20,10 @@ namespace CarRent.Api.CarManagement.Domain
     {
       CarRepository.AddCar(car);
     }
+
+    public void DeleteCar(int carId)
+    {
+      CarRepository.DeleteCar(carId);
+    }
   }
 }

@@ -35,7 +35,7 @@ namespace CarRent.Api.CarManagement.Domain
 
     public int CarClassId { get; set; }
 
-    public int CarId { get; }
+    public int CarId { get; set; }
 
     public string CarType { get; set; }
 

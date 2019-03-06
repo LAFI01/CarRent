@@ -2,7 +2,7 @@
 // FileName: CustomerService.cs
 // Author: 
 // Created on: 10.02.2019
-// Last modified on: 10.02.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -16,13 +16,21 @@ namespace CarRent.Api.CustomerManagement.Domain
   {
     public CustomerService(ICustomerRepository customerRepository)
     {
-#pragma warning disable SA1101 // Prefix local calls with this
       CustomerRepository = customerRepository;
-#pragma warning restore SA1101 // Prefix local calls with this
     }
 
     private ICustomerRepository CustomerRepository { get; }
 
+
+    public void AddCustomer(Customer newCustomer)
+    {
+      CustomerRepository.AddCustomer(newCustomer);
+    }
+
+    public void DeleteCustomer(int customerId)
+    {
+      CustomerRepository.DeleteCustomer(customerId);
+    }
 
     public IReadOnlyList<Customer> GetAll()
     {

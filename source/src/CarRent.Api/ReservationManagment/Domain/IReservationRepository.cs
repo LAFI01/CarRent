@@ -15,7 +15,7 @@ namespace CarRent.Api.ReservationManagment.Domain
 
   public interface IReservationRepository
   {
-    void CreateReservation(DateTime startDate, DateTime endDate, decimal calculateTotalPrice, bool isPickedUp, int customerFk, int carFk);
+    void CreateReservation(Reservation newReservation);
 
     IReadOnlyList<Reservation> GetAllReservation();
 

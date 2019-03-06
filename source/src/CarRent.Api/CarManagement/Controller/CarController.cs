@@ -2,7 +2,7 @@
 // FileName: CarController.cs
 // Author: 
 // Created on: 24.01.2019
-// Last modified on: 10.02.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -10,6 +10,7 @@
 // ************************************************************************************
 namespace CarRent.Api.CarManagement.Controller
 {
+  using System;
   using System.Collections.Generic;
   using System.Linq;
   using Domain;
@@ -26,10 +27,10 @@ namespace CarRent.Api.CarManagement.Controller
 
     private ICarService CarService { get; }
 
-    // DELETE: api/ApiWithActions/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public void Delete(int carId)
     {
+      CarService.DeleteCar(carId);
     }
 
     // GET: api/Car
@@ -56,19 +57,23 @@ namespace CarRent.Api.CarManagement.Controller
     [HttpGet("{id}", Name = "Get")]
     public string Get(int id)
     {
-      return "value";
+      throw new NotImplementedException();
     }
 
     // POST: api/Car
     [HttpPost]
-    public void Post([FromBody] string value)
+    public void Post([FromBody] CarDto value)
     {
+      Car newCar = new Car(value.CarId, value.Brand, value.CarType, value.CarClassFk, value.NumberOfTotalCars,
+        value.NumberOfAvailableCars, value.CarClassId, value.CarClass, value.PricePerDay);
+      CarService.AddCar(newCar);
     }
 
     // PUT: api/Car/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {
+      throw new NotImplementedException();
     }
   }
 }

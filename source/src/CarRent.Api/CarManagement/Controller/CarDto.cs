@@ -2,7 +2,7 @@
 // FileName: CarDto.cs
 // Author: 
 // Created on: 24.01.2019
-// Last modified on: 03.03.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -33,6 +33,5 @@ namespace CarRent.Api.CarManagement.Controller
     public int NumberOfTotalCars { get; set; }
 
     public decimal PricePerDay { get; set; }
-
   }
 }

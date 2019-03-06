@@ -2,7 +2,7 @@
 // FileName: CustomerController.cs
 // Author: 
 // Created on: 10.02.2019
-// Last modified on: 03.03.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
@@ -10,6 +10,7 @@
 // ************************************************************************************
 namespace CarRent.Api.CustomerManagement.Controller
 {
+  using System;
   using System.Collections.Generic;
   using System.Linq;
   using Domain;
@@ -28,8 +29,9 @@ namespace CarRent.Api.CustomerManagement.Controller
 
     // DELETE: api/ApiWithActions/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public void Delete(int customerId)
     {
+      CustomerService.DeleteCustomer(customerId);
     }
 
     // GET: api/Customer
@@ -54,19 +56,21 @@ namespace CarRent.Api.CustomerManagement.Controller
       });
     }
 
-    // GET: api/Customer/5
-
 
     // POST: api/Customer
     [HttpPost]
-    public void Post([FromBody] string value)
+    public void Post([FromBody] CustomerDto value)
     {
+      Customer newCustomer = new Customer(value.CustomerId, value.Name, value.Firstname, value.AddressFk,
+        value.AddressId, value.Street, value.StreetNr, value.CityFk, value.CityId, value.Plz, value.Place);
+      CustomerService.AddCustomer(newCustomer);
     }
 
     // PUT: api/Customer/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {
+      throw new NotImplementedException();
     }
   }
 }

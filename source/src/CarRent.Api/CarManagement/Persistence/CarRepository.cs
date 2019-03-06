@@ -21,5 +21,15 @@ namespace CarRent.Api.CarManagement.Persistence
       // return InmemoryCars
       return null;
     }
+
+    public void AddCar(Car newCar)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public void DeleteCar(int carId)
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }

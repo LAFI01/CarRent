@@ -1,24 +1,16 @@
 ﻿// ************************************************************************************
-// FileName: ICarRepository.cs
+// FileName: ContractDto.cs
 // Author: 
-// Created on: 24.01.2019
-// Last modified on: 10.02.2019
+// Created on: 06.03.2019
+// Last modified on: 06.03.2019
 // Copy Right: JELA Rocks
 // ------------------------------------------------------------------------------------
 // Description: 
 // ------------------------------------------------------------------------------------
 // ************************************************************************************
-namespace CarRent.Api.CarManagement.Domain
+namespace CarRent.Api.ContractManagment.Controller
 {
-  using System.Collections.Generic;
-
-  public interface ICarRepository
+  public class ContractDto
   {
-    IReadOnlyList<Car> GetAll();
-
-    void AddCar(Car newCar);
-
-    void DeleteCar(int carId);
   }
-
 }
